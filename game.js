@@ -1,33 +1,61 @@
 //thiet lap bộ câu hỏi
 let quizz1= new Quizz('img/dudu.png',"đu đủ", ['đủ rồi','Một loaij trái cây']);
 let quizz2= new Quizz('img/hama.png',"hà mã", ['Sơn Hà','Một loại động vật']);
-let quizz3= new Quizz('2','Thần Tài',['HTML','Tên một vị thần']);
-let quizz4= new Quizz('2','Thần Tài',['Tài năng','Tên một vị thần']);
-let quizz5= new Quizz('2','Thần Tài',['Tài năng','Tên một vị thần']);
-let quizz6= new Quizz('2','Thần Tài',['Tài năng','Tên một vị thần']);
+let quizz3= new Quizz('img/changio.png','chân giò',['con lợn','Tên một loại thịt']);
+let quizz4= new Quizz('img/baoke.png','bảo kê',['Một hành động','Hành động trái pháp luật']);
+let quizz5= new Quizz('img/cuabien.png','cửa biển',['Nút giao của dòng chảy','Nơi sông đổ ra biển']);
+let quizz6= new Quizz('img/cuathientradia.png','của thiên trả địa',['Thành ngữ việt nam','Chỉ những sư việc không phải của mình']);
+let quizz7= new Quizz('img/dungbong.png','đứng bóng',['là một tính từ','sự phản chiếu của vật thể dưới ánh nắng']);
+let quizz8= new Quizz('img/gahoamo.png','gà hoa mơ',['Một loại gà','Chỉ các con gà mái có màu hoa']);
+let quizz9= new Quizz('img/ghenty.png','ghen tỵ',['Hành vi của con người','Đồng nghĩa với từ đố kỵ']);
+let quizz10= new Quizz('img/giacmac.png','giác mạc',['Bộ phẩn cơ thể người','Nằm ở vị trí mắt']);
+let quizz11= new Quizz('img/giayquytim.png','giấy quỳ tím',['là vật thử trong hóa học','chuyển sang màu đỏ khi tiếp xúc vs axit']);
+let quizz12= new Quizz('img/haoquang.png','hào quang',['Điều khiến người nhạc nhiên','Cảm nhận bằng thị giác']);
+let quizz13= new Quizz('img/khongquan.png','không quân',['Một loại binh chủng trong quân đội','Chiến đấu trên vùng trời']);
+let quizz14= new Quizz('img/khucmac.png','khúc mắc',['Suy nghĩ của con người về một sự việc','Đi kèm với lo lắng, chưa thể giải đáp']);
+let quizz15= new Quizz('img/lubu.png',"lu bu", ['Trạng thái của con người','Thể hiện sự rối rắm, không được nhanh nhẹn']);
+let quizz16= new Quizz('img/notruoison.png',"nốt ruồi son", ['Một dấu hiệu trên cơ thể người','mang ý nghĩa may mắn, tài lộc']);
+let quizz17= new Quizz('img/phaodai.png',"pháo đài", ['tòa thành thời trung cổ','Chống quân giặc tấn công']);
+let quizz18= new Quizz('img/taynao.png',"tẩy não", ['hành vi liên quan tới não bộ ','xóa đi ký ức']);
+let quizz19= new Quizz('img/thieunhi.png',"thiếu nhi", ['Độ tuổi của người','ngày quốc tế 1/6']);
+let quizz20= new Quizz('img/thuoctrusau.png',"thuốc trừ sâu", ['thuốc bảo vệ thực vật','tiêu diệt côn trùng']);
+let quizz21= new Quizz('img/tienloi.png',"tiền lời", ['phần thưởng của hoạt động kinh doanh','Được tính ra từ khoản thu và mức chi tiêu']);
+let quizz22= new Quizz('img/tucach.png',"tư cách", ['yếu tố đánh giá con người','Thể hiện nhân phẩm']);
+let quizz23= new Quizz('img/xuathanh.png',"xuất hành", ['Hành vi ra khỏi nhà','Từ ngữ hán việt']);
 let quizzs=[];
 // function creatBocauhoi(){
 //
-//     for (let i = 0; i <15 ; i++) {
-//         quizzs.push("quizz"+i)
+//     for (let i = 1; i <=5 ; i++) {
+//         eval('quizz'+i);
+//         quizzs.push(eval);
 //     }
 //
 // }
-
+// console.log(quizzs);
 // thiết lập câu hỏi dùng trong 1 game;
-let game1= new manageQuizz(3);
-game1.addQuizz(quizz1);
-game1.addQuizz(quizz2);
-game1.addQuizz(quizz3);
-console.log(game1);
-console.log(quizz1)
 
+let game1= new manageQuizz(5);
+game1.addQuizzss(quizz1);
+game1.addQuizzss(quizz2);
+game1.addQuizzss(quizz3);
+game1.addQuizzss(quizz4);
+game1.addQuizzss(quizz5);
+game1.addQuizzss(quizz6);
+game1.addQuizzss(quizz7);
+game1.addQuizzss(quizz8);
+game1.addQuizzss(quizz9);
+game1.addQuizzss(quizz10);
+console.log(game1.Quizzss);
+game1.getQuizzs();
+console.log(game1.Quizzs);
 
 //giao dien voi DOM
 function Display(index){
     document.getElementById('answer').value ='';
     document.getElementById('point').value =game1.point;
     document.getElementById('Note').innerHTML ='';
+
+
     let anhthe = document.getElementById('src_image');
     anhthe.setAttribute('src',game1.Quizzs[index].image);
     return index;
@@ -39,15 +67,21 @@ function nextQuiz(){
 
     if (game1.currentOfQuizzs<game1.limit){
         game1.currentOfQuizzs++;
-    }else ('Bạn đã đến câu hỏi cuối')
+    }else alert ('Bạn đã đến câu hỏi cuối')
     Display(game1.currentOfQuizzs);
 }
 function checkAnswer(answer){
     // alert('vào hàm')
     console.log(answer.toLowerCase()) ;
+    console.log(game1.currentOfQuizzs );
     if (answer.toLowerCase()===game1.Quizzs[getCurrent()].answer){
         game1.point++;
-        nextQuiz();
+        if(game1.currentOfQuizzs < game1.limit-1){
+            nextQuiz();
+        }else {
+            Display(game1.currentOfQuizzs);
+            alert('Bạn đã chiến thắng')}
+
 
     }else alert('Đáp án chưa đúng')
 
@@ -60,6 +94,7 @@ function startGame(){
         name.value=prompt('Nhập tên người chơi')
 
     }while(name.value =='')
+
     Display(0);
 }
 function onNote(){

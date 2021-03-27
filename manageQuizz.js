@@ -1,29 +1,49 @@
 class manageQuizz{
     constructor(_number) {
        // this.playerName =playerName_str
-       this.Quizzs=[];//bộ câu hỏi
+       this.Quizzss=[];//bộ câu hỏi
 
+       this.Quizzs=[]; //cau hoi lua chon
        this.limit=_number;
        this.currentOfQuizzs = 0;
 
        this.time =15;
        this.point=0;
     }
-    addQuizz(quiz_obj){
-        this.Quizzs.push(quiz_obj);
+    addQuizzss(quiz_obj){
+        this.Quizzss.push(quiz_obj);
     }
-    deleQuizz(index){
-        this.Quizzs.splice(index,1)
+    deleQuizzss(index){
+        this.Quizzss.splice(index,1)
     }
 
-    // getQuizzs(){
-    //
-    //     let array=[];
-    //     for (let i = 0; i <this.limit ; i++) {
-    //         let pick= Math.floor(Math.random() * this.Quizzs.length)+1;
-    //         array[i]= this.Quizzs[pick];
-    //     }
-    //     return array;
-    // }
+    getQuizzs(){
+
+        let arrayIndex=[];
+        arrayIndex[0]=Math.floor(Math.random() * this.Quizzss.length);
+        for (let i = 1; i<this.limit ;i++ ) {
+            let k=Math.floor(Math.random() * this.Quizzss.length)
+            let check=true
+            for (const indexElement of arrayIndex) {
+                if(k==indexElement){
+                    check=false;
+                    break;
+                }
+            }
+            if (check){
+                arrayIndex.push(k);
+            }else i--;
+        }
+        console.log(arrayIndex);
+        for (let i = 0; i <this.limit ; i++) {
+
+            this.Quizzs[i] = this.Quizzss[arrayIndex[i]];
+
+        }
+        return this.Quizzs;
+    }
+    endGame(){
+
+    }
 
 }
