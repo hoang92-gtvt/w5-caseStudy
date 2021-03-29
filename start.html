@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bắt đầu</title>
+</head>
+<body>
+    <div id=show style="width:500px; height:400px">
+    <img src='img/anhnen.png'/>
+
+    <a href="index.html">
+        <button
+            style='background-color: #ffff00; position:relative; top:-220px; left: -20px; width:100px ;height:40px'
+            onclick='startGame()' >Bắt đầu
+        </button>
+    </a>
+
+    <button
+            style='background-color: #ffff00; position:relative; top:-220px; left: -20px; width:100px;height:40px'
+            onclick='huongdan()' >Hướng dẫn
+    </button>
+    </div>
+    <script>
+        function huongdan(){
+        document.getElementById('show').innerHTML=
+        "<h1>HƯỚNG DẪN NGƯỜI CHƠI</h1>"+
+        "<H3>Nhập từ khóa đáp án vào ô Answer</H3>"+
+        "<H3>Click xem gợi ý khi không tìm được lời giải</H3>"+
+        "<button onclick='onLoad()'>Quay trở về trò chơi</button>"
+
+        }
+        function onLoad(){
+            document.getElementById('show').innerHTML=
+                "<img src='img/anhnen.png'/>"+
+
+                "<a href='index.html'>"+
+                    "<button style='background-color: #ffff00; position:relative; top:-220px; left: -20px; width:100px ;height:40px' "+
+
+                        "onClick='startGame()'> Bắt đầu"+
+                    "</button>"+
+                "</a> "+
+
+                "<button style='background-color:blue; position:relative; top:-220px; left: -20px; width:100px;height:40px' "+
+
+                    "onClick='huongdan()'>Hướng dẫn"+
+                "</button>"
+
+        }
+    </script>
+</body>
+</html>

@@ -45,6 +45,19 @@ game1.addQuizzss(quizz7);
 game1.addQuizzss(quizz8);
 game1.addQuizzss(quizz9);
 game1.addQuizzss(quizz10);
+game1.addQuizzss(quizz11);
+game1.addQuizzss(quizz12);
+game1.addQuizzss(quizz13);
+game1.addQuizzss(quizz14);
+game1.addQuizzss(quizz15);
+game1.addQuizzss(quizz16);
+game1.addQuizzss(quizz17);
+game1.addQuizzss(quizz18);
+game1.addQuizzss(quizz19);
+game1.addQuizzss(quizz20);
+game1.addQuizzss(quizz21);
+game1.addQuizzss(quizz22);
+game1.addQuizzss(quizz23);
 console.log(game1.Quizzss);
 game1.getQuizzs();
 console.log(game1.Quizzs);
@@ -83,7 +96,14 @@ function checkAnswer(answer){
             alert('Bạn đã chiến thắng')}
 
 
-    }else alert('Đáp án chưa đúng')
+    }else {
+        game1.Quizzs[getCurrent()].number_answer--;
+        alert('Đáp án chưa đúng'+ ' Bạn còn '+ game1.Quizzs[getCurrent()].number_answer+ 'lần trả lời');
+        document.getElementById('answer').value =''
+        if(game1.Quizzs[getCurrent()].number_answer==0){
+            endGame();
+        }
+    }
 
 }
 
@@ -104,27 +124,24 @@ function onNote(){
     }else note.innerHTML =game1.Quizzs[getCurrent()].note[1]   ;
 }
 
-
-
-
-
-
 function endGame(){
     document.getElementById('show').innerHTML=
-        "<div><img src='img/anhnen'/> " +
-        "<h2>document.getElementById('player').value</h2>" +
-        "<h2>document.getElementById('point').value</h2>" +
-        "</div>" +
+        "<div style='background-color: white'>" +
+            "<img src='img/anhnen.png'/> " +
+            "<h2 style='position: relative ; top: -220px; left: 200px '>Người chơi : " + document.getElementById('player').value + "</h2>"+
+            "<h2 style='position: relative ; top: -220px; left: 200px '>Số Điểm: "+ document.getElementById('point').value + "</h2>" +
+            "<button onclick='location.reload();' " +
+                "style='position: relative ; top: -220px; left: 200px '" +
+                " >Chơi lại" +
+            "</button>" +
 
-
-    let kq =confirm('Bạn có muốn chơi lại')
-    if(kq){
-        startGame();
-    }else {
-        document.getElementById('show').innerHTML=
-            "<div> <img src='img/anhnen'/>" +
-            "<a href='start.html'><button>Quay trở lại trang chính</button></a> </div>"
-    }
+            " <a href='start.html'>" +
+                "<button style='position: relative ; top: -220px; left: 200px '>" +
+                "Quay trở lại trang chính" +
+                "</button>" +
+            "</a> "+
+        "</div>"
 
 }
+
 
