@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bắt đầu</title>
+
 </head>
 <body>
     <div id=show style="width:500px; height:400px">
@@ -10,22 +11,32 @@
 
     <a href="index.html">
         <button
-            style='background-color: #ffff00; position:relative; top:-220px; left: -20px; width:100px ;height:40px'
+            style='background-color: #ffff00; position:relative; top:-220px; left: 10px; width:100px ;height:40px'
             onclick='startGame()' >Bắt đầu
         </button>
     </a>
 
     <button
-            style='background-color: #ffff00; position:relative; top:-220px; left: -20px; width:100px;height:40px'
+            style='background-color: #ffff00; position:relative; top:-220px; left: 10px; width:100px ;height:40px'
             onclick='huongdan()' >Hướng dẫn
     </button>
+    <button
+                style='background-color: #ffff00; position:relative; top:-228px; left: 10px; width:100px ;height:40px'
+                onclick='rankTable()' >Bảng xếp hạng
+    </button>
+        <span id="rank"></span>
+
     </div>
+
+    <script src="game1.js"></script>
     <script>
         function huongdan(){
         document.getElementById('show').innerHTML=
         "<h1>HƯỚNG DẪN NGƯỜI CHƠI</h1>"+
-        "<H3>Nhập từ khóa đáp án vào ô Answer</H3>"+
+        "<H3>Nhập tên người chơi để hệ thống lưu thông tin</H3>"+
+        "<H3>Gõ từ khóa đáp án vào ô Answer</H3>"+
         "<H3>Click xem gợi ý khi không tìm được lời giải</H3>"+
+        "<H3>Mỗi câu hỏi có ba lần trả lời</H3>"+
         "<button onclick='onLoad()'>Quay trở về trò chơi</button>"
 
         }
@@ -34,17 +45,20 @@
                 "<img src='img/anhnen.png'/>"+
 
                 "<a href='index.html'>"+
-                    "<button style='background-color: #ffff00; position:relative; top:-220px; left: -20px; width:100px ;height:40px' "+
+                    "<button style='background-color: #ffff00; position:relative; top:-220px; left: 20px; width:100px ;height:40px' "+
 
                         "onClick='startGame()'> Bắt đầu"+
                     "</button>"+
                 "</a> "+
 
-                "<button style='background-color:blue; position:relative; top:-220px; left: -20px; width:100px;height:40px' "+
+                "<button style='background-color:yellow; position:relative; top:-220px; left: 20px; width:100px;height:40px' "+
 
                     "onClick='huongdan()'>Hướng dẫn"+
                 "</button>"
 
+        }
+        function rankTable(){
+            document.getElementById('rank').innerHTML=getLocalStorage();
         }
     </script>
 </body>

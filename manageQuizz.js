@@ -1,6 +1,6 @@
 class manageQuizz{
     constructor(_number) {
-       // this.playerName =playerName_str
+       this.playerName ="" ;
        this.Quizzss=[];//bộ câu hỏi
 
        this.Quizzs=[]; //cau hoi lua chon

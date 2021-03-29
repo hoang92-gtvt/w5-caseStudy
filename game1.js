@@ -1,5 +1,5 @@
 //thiet lap bộ câu hỏi
-let quizz1= new Quizz('img/dudu.png',"đu đủ", ['đủ rồi','Một loaij trái cây']);
+let quizz1= new Quizz('img/dudu.png',"đu đủ", ['đầy đủ','Một loaij trái cây']);
 let quizz2= new Quizz('img/hama.png',"hà mã", ['Sơn Hà','Một loại động vật']);
 let quizz3= new Quizz('img/changio.png','chân giò',['con lợn','Tên một loại thịt']);
 let quizz4= new Quizz('img/baoke.png','bảo kê',['Một hành động','Hành động trái pháp luật']);
@@ -34,7 +34,7 @@ let quizzs=[];
 // console.log(quizzs);
 // thiết lập câu hỏi dùng trong 1 game;
 
-let game1= new manageQuizz(5);
+let game1= new manageQuizz(10);
 game1.addQuizzss(quizz1);
 game1.addQuizzss(quizz2);
 game1.addQuizzss(quizz3);
@@ -88,7 +88,7 @@ function checkAnswer(answer){
     console.log(answer.toLowerCase()) ;
     console.log(game1.currentOfQuizzs );
     if (answer.toLowerCase()===game1.Quizzs[getCurrent()].answer){
-        game1.point++;
+        game1.point+=10;
         if(game1.currentOfQuizzs < game1.limit-1){
             nextQuiz();
         }else {
@@ -100,6 +100,7 @@ function checkAnswer(answer){
     }
     else {
         game1.Quizzs[getCurrent()].number_answer--;
+        game1.point-=2;
         alert('Đáp án chưa đúng'+ ' Bạn còn '+ game1.Quizzs[getCurrent()].number_answer+ 'lần trả lời');
         document.getElementById('answer').value =''
         if(game1.Quizzs[getCurrent()].number_answer==0){
@@ -117,6 +118,7 @@ function startGame(){
 
     }while(name.value =='')
 
+    game1.playerName=name.value;
     Display(0);
 }
 function onNote(){
@@ -144,6 +146,27 @@ function endGame(){
             "</a> "+
         "</div>"
 
+    setLocalStorage();
 }
+function setLocalStorage(){
 
+    let name_player= localStorage.getItem('name');
+    let point_player= localStorage.getItem('point');
+    let arrName = name_player.split(',');
+    let arrPoint = point_player.split(',');
+    arrName.push(game1.playerName);
+    arrPoint.push( game1.point);
+    localStorage.setItem('name',arrName);
+    localStorage.setItem('point',arrPoint);
+}
+function getLocalStorage(){
+    let arrName=(localStorage.getItem('name')).split(',');
+    let arrPoint=(localStorage.getItem('point')).split(',');
+    let rankTable="<table border='1px'> <tr><th>Tên người chơi</th><th>Điểm số</th> </tr>";
+    for (let i = 0; i <arrName.length ; i++) {
+        rankTable += "<tr><td>"+arrName[i]+"</td><td>"+arrPoint[i]+"</td> </tr>"
+    }
+    rankTable +="</table>"
+    return rankTable;
+}
 
