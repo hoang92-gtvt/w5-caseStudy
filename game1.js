@@ -93,10 +93,12 @@ function checkAnswer(answer){
             nextQuiz();
         }else {
             Display(game1.currentOfQuizzs);
-            alert('Bạn đã chiến thắng')}
+            alert('Bạn đã chiến thắng');
+            endGame();
+        }
 
-
-    }else {
+    }
+    else {
         game1.Quizzs[getCurrent()].number_answer--;
         alert('Đáp án chưa đúng'+ ' Bạn còn '+ game1.Quizzs[getCurrent()].number_answer+ 'lần trả lời');
         document.getElementById('answer').value =''
@@ -105,8 +107,8 @@ function checkAnswer(answer){
         }
     }
 
-}
 
+}
 
 function startGame(){
     let name=document.getElementById('player');
