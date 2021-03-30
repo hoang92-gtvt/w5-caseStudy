@@ -6,8 +6,6 @@ class manageQuizz{
        this.Quizzs=[]; //cau hoi lua chon
        this.limit=_number;
        this.currentOfQuizzs = 0;
-
-       this.time =15;
        this.point=0;
     }
     addQuizzss(quiz_obj){

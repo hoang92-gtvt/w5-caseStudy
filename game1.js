@@ -1,22 +1,22 @@
 //thiet lap bộ câu hỏi
-let quizz1= new Quizz('img/dudu.png',"đu đủ", ['đầy đủ','Một loaij trái cây']);
+let quizz1= new Quizz('img/dudu.png',"đu đủ", ['Đầy đủ','Một loaij trái cây']);
 let quizz2= new Quizz('img/hama.png',"hà mã", ['Sơn Hà','Một loại động vật']);
-let quizz3= new Quizz('img/changio.png','chân giò',['con lợn','Tên một loại thịt']);
+let quizz3= new Quizz('img/changio.png','chân giò',['Con lợn','Tên một loại thịt']);
 let quizz4= new Quizz('img/baoke.png','bảo kê',['Một hành động','Hành động trái pháp luật']);
 let quizz5= new Quizz('img/cuabien.png','cửa biển',['Nút giao của dòng chảy','Nơi sông đổ ra biển']);
 let quizz6= new Quizz('img/cuathientradia.png','của thiên trả địa',['Thành ngữ việt nam','Chỉ những sư việc không phải của mình']);
-let quizz7= new Quizz('img/dungbong.png','đứng bóng',['là một tính từ','sự phản chiếu của vật thể dưới ánh nắng']);
+let quizz7= new Quizz('img/dungbong.png','đứng bóng',['Trạng thái sự vật','sự phản chiếu của vật thể dưới ánh nắng']);
 let quizz8= new Quizz('img/gahoamo.png','gà hoa mơ',['Một loại gà','Chỉ các con gà mái có màu hoa']);
 let quizz9= new Quizz('img/ghenty.png','ghen tỵ',['Hành vi của con người','Đồng nghĩa với từ đố kỵ']);
 let quizz10= new Quizz('img/giacmac.png','giác mạc',['Bộ phẩn cơ thể người','Nằm ở vị trí mắt']);
-let quizz11= new Quizz('img/giayquytim.png','giấy quỳ tím',['là vật thử trong hóa học','chuyển sang màu đỏ khi tiếp xúc vs axit']);
+let quizz11= new Quizz('img/giayquytim.png','giấy quỳ tím',['Vật thử trong hóa học','chuyển sang màu đỏ khi tiếp xúc vs axit']);
 let quizz12= new Quizz('img/haoquang.png','hào quang',['Điều khiến người nhạc nhiên','Cảm nhận bằng thị giác']);
 let quizz13= new Quizz('img/khongquan.png','không quân',['Một loại binh chủng trong quân đội','Chiến đấu trên vùng trời']);
 let quizz14= new Quizz('img/khucmac.png','khúc mắc',['Suy nghĩ của con người về một sự việc','Đi kèm với lo lắng, chưa thể giải đáp']);
 let quizz15= new Quizz('img/lubu.png',"lu bu", ['Trạng thái của con người','Thể hiện sự rối rắm, không được nhanh nhẹn']);
 let quizz16= new Quizz('img/notruoison.png',"nốt ruồi son", ['Một dấu hiệu trên cơ thể người','mang ý nghĩa may mắn, tài lộc']);
-let quizz17= new Quizz('img/phaodai.png',"pháo đài", ['tòa thành thời trung cổ','Chống quân giặc tấn công']);
-let quizz18= new Quizz('img/taynao.png',"tẩy não", ['hành vi liên quan tới não bộ ','xóa đi ký ức']);
+let quizz17= new Quizz('img/phaodai.png',"pháo đài", ['Tòa thành thời trung cổ','Chống quân giặc tấn công']);
+let quizz18= new Quizz('img/taynao.png',"tẩy não", ['Hành vi liên quan tới não bộ ','xóa đi ký ức']);
 let quizz19= new Quizz('img/thieunhi.png',"thiếu nhi", ['Độ tuổi của người','ngày quốc tế 1/6']);
 let quizz20= new Quizz('img/thuoctrusau.png',"thuốc trừ sâu", ['thuốc bảo vệ thực vật','tiêu diệt côn trùng']);
 let quizz21= new Quizz('img/tienloi.png',"tiền lời", ['phần thưởng của hoạt động kinh doanh','Được tính ra từ khoản thu và mức chi tiêu']);
@@ -88,6 +88,7 @@ function checkAnswer(answer){
     console.log(answer.toLowerCase()) ;
     console.log(game1.currentOfQuizzs );
     if (answer.toLowerCase()===game1.Quizzs[getCurrent()].answer){
+        document.getElementById('votay').play();
         game1.point+=10;
         if(game1.currentOfQuizzs < game1.limit-1){
             nextQuiz();
@@ -122,6 +123,7 @@ function startGame(){
     Display(0);
 }
 function onNote(){
+    game1.point-=1;
     let note=document.getElementById('Note');
     if(note.innerHTML ==''){
         note.innerHTML =game1.Quizzs[getCurrent()].note[0];
@@ -162,7 +164,7 @@ function setLocalStorage(){
 function getLocalStorage(){
     let arrName=(localStorage.getItem('name')).split(',');
     let arrPoint=(localStorage.getItem('point')).split(',');
-    let rankTable="<table border='1px'> <tr><th>Tên người chơi</th><th>Điểm số</th> </tr>";
+    let rankTable="<button onclick='location.reload()'>Close</button><table border='1px'> <tr><th>Tên người chơi</th><th>Điểm số</th> </tr>";
     for (let i = 0; i <arrName.length ; i++) {
         rankTable += "<tr><td>"+arrName[i]+"</td><td>"+arrPoint[i]+"</td> </tr>"
     }

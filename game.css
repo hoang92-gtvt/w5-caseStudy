@@ -1,0 +1,36 @@
+#show{
+    /*border-radius: 20px;*/
+    position: fixed;
+    top: 80px;
+    left: 450px;
+}
+#newgame{
+
+    position: absolute;
+    top: 440px;
+    left: 480px;
+}
+#Note{
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    font-size: 25px;
+}
+#inlineAnswer{
+    font-size: 30px;
+    text-align: left;
+}
+.box{
+    width: 100px;
+    height:60px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    background-color: blue;
+}
+#answer{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 30px;
+}
